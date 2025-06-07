@@ -38,7 +38,7 @@ export function SinglePageDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-business-background">
       <StickyNavbar 
         activeSection={activeSection}
         onNavigate={scrollToSection}

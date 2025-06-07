@@ -13,21 +13,21 @@ const topProductsData = [
 ];
 
 const profitDistributionData = [
-  { name: 'Grains', value: 35, color: '#16a34a' },
-  { name: 'Spices', value: 25, color: '#059669' },
-  { name: 'Oil & Ghee', value: 20, color: '#0ea5e9' },
-  { name: 'Pulses', value: 15, color: '#f59e0b' },
-  { name: 'Others', value: 5, color: '#ef4444' },
+  { name: 'Grains', value: 35, color: '#22C55E' },
+  { name: 'Spices', value: 25, color: '#2563EB' },
+  { name: 'Oil & Ghee', value: 20, color: '#FACC15' },
+  { name: 'Pulses', value: 15, color: '#EF4444' },
+  { name: 'Others', value: 5, color: '#6B7280' },
 ];
 
 export function DashboardSection() {
   return (
-    <section id="dashboard" className="min-h-screen bg-white py-12">
+    <section id="dashboard" className="min-h-screen bg-business-card py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Welcome Section */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Welcome, Rajesh Kumar!</h2>
-          <p className="text-xl text-gray-600">Here's your shop performance overview for today</p>
+          <h2 className="text-4xl font-bold text-business-textPrimary mb-4">Welcome, Rajesh Kumar!</h2>
+          <p className="text-xl text-business-textSecondary">Here's your shop performance overview for today</p>
         </div>
 
         {/* Stats Cards */}
@@ -64,31 +64,31 @@ export function DashboardSection() {
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Top Products Bar Chart */}
-          <Card>
+          <Card className="shadow-lg border-business-border">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-green-600" />
+              <CardTitle className="flex items-center gap-2 text-business-textPrimary">
+                <TrendingUp className="w-5 h-5 text-business-primary" />
                 Top 5 Products by Sales
               </CardTitle>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={topProductsData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                  <XAxis dataKey="name" tick={{ fill: '#6B7280' }} />
+                  <YAxis tick={{ fill: '#6B7280' }} />
                   <Tooltip formatter={(value) => [`₹${value}`, 'Sales']} />
-                  <Bar dataKey="sales" fill="#16a34a" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="sales" fill="#2563EB" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
           </Card>
 
           {/* Profit Distribution Pie Chart */}
-          <Card>
+          <Card className="shadow-lg border-business-border">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Package className="w-5 h-5 text-green-600" />
+              <CardTitle className="flex items-center gap-2 text-business-textPrimary">
+                <Package className="w-5 h-5 text-business-primary" />
                 Profit Distribution by Category
               </CardTitle>
             </CardHeader>
@@ -115,19 +115,19 @@ export function DashboardSection() {
         </div>
 
         {/* Business Insights */}
-        <Card>
+        <Card className="shadow-lg border-business-border">
           <CardHeader>
-            <CardTitle>Today's Business Insights</CardTitle>
+            <CardTitle className="text-business-textPrimary">Today's Business Insights</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <h4 className="font-semibold text-green-800 mb-2">💡 Profit Opportunity</h4>
+              <div className="bg-green-50 border border-business-accent/30 rounded-lg p-4">
+                <h4 className="font-semibold text-business-accent mb-2">💡 Profit Opportunity</h4>
                 <p className="text-green-700">Sugar is your most profitable product this week with 45% margin</p>
               </div>
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                <h4 className="font-semibold text-amber-800 mb-2">⚠️ Stock Alert</h4>
-                <p className="text-amber-700">Oil stock is low – consider reordering before weekend rush</p>
+              <div className="bg-yellow-50 border border-business-warning/30 rounded-lg p-4">
+                <h4 className="font-semibold text-business-warning mb-2">⚠️ Stock Alert</h4>
+                <p className="text-yellow-700">Oil stock is low – consider reordering before weekend rush</p>
               </div>
             </div>
           </CardContent>

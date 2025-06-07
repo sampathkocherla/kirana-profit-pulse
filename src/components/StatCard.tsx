@@ -15,19 +15,19 @@ interface StatCardProps {
 
 export function StatCard({ title, value, subtitle, icon: Icon, trend }: StatCardProps) {
   return (
-    <Card className="hover:shadow-lg transition-shadow">
+    <Card className="hover:shadow-lg transition-shadow border-business-border bg-business-card">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium text-gray-600">{title}</CardTitle>
+        <CardTitle className="text-sm font-medium text-business-textSecondary">{title}</CardTitle>
         <Icon className="h-5 w-5 text-business-primary" />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold text-gray-900">{value}</div>
+        <div className="text-2xl font-bold text-business-textPrimary">{value}</div>
         {subtitle && (
-          <p className="text-sm text-gray-500 mt-1">{subtitle}</p>
+          <p className="text-sm text-business-textSecondary mt-1">{subtitle}</p>
         )}
         {trend && (
           <div className={`flex items-center text-sm mt-2 ${
-            trend.isPositive ? 'text-business-success' : 'text-business-danger'
+            trend.isPositive ? 'text-business-accent' : 'text-business-error'
           }`}>
             <span>{trend.isPositive ? '↗' : '↘'} {trend.value}</span>
           </div>
