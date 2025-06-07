@@ -12,7 +12,7 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import { 
   Badge, 
-  Chart, 
+  BarChart3, 
   TrendingUp, 
   Package 
 } from "lucide-react";
@@ -21,7 +21,7 @@ const menuItems = [
   {
     title: "Dashboard",
     url: "/",
-    icon: Chart,
+    icon: BarChart3,
   },
   {
     title: "Product Analysis",
